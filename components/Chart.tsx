@@ -11,19 +11,42 @@ import {
 } from "recharts";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { useWallet } from "@/hooks/useApiData";
+import { useWallet, useTransactions } from "@/hooks/useApiData";
+import { useMemo } from "react";
 
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-];
+const groupTransactionsByDate = (transactions: any[]) => {
+  const grouped: { [key: string]: number } = {};
+
+  transactions.forEach((transaction) => {
+    const date = new Date(transaction.date);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+    if (!grouped[formattedDate]) {
+      grouped[formattedDate] = 0;
+    }
+    grouped[formattedDate] += transaction.amount;
+  });
+
+  return Object.entries(grouped)
+    .map(([date, amount]) => ({
+      date,
+      amount,
+    }))
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+};
 
 export function Chart() {
   const { data: wallet } = useWallet();
+  const { data: transactions } = useTransactions();
+
+  const chartData = useMemo(() => {
+    if (!transactions) return [];
+    return groupTransactionsByDate(transactions);
+  }, [transactions]);
+
   return (
     <Card className="w-full border-none bg-white shadow-none">
       <CardHeader className="flex justify-start items-center gap-x-14">
@@ -49,25 +72,33 @@ export function Chart() {
               data={chartData}
               margin={{
                 top: 20,
-                left: 12,
-                right: 12,
+                left: 0,
+                right: 0,
+                bottom: 0,
               }}
             >
-              <CartesianGrid vertical={false} horizontal={false} />{" "}
+              <CartesianGrid vertical={false} horizontal={false} />
               <XAxis
-                dataKey="month"
+                dataKey="date"
                 tickLine={false}
                 axisLine={{ stroke: "#DBDEE5" }}
                 tickMargin={8}
-                tickFormatter={(value) => value.slice(0, 3)}
+                scale="point"
+                padding={{ left: 0, right: 0 }}
               />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "#fff",
                 }}
+                formatter={(value: number) =>
+                  `USD ${value.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}`
+                }
               />
               <Line
-                dataKey="desktop"
+                dataKey="amount"
                 type="monotone"
                 stroke="#FF5403"
                 dot={false}

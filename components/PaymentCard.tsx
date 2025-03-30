@@ -30,8 +30,11 @@ const PaymentCard = () => {
                   })}`}
             </span>
           </div>
-          <div>
+          <div className="relative group">
             <InfoIcon className="text-gray-300 w-4 h-4" />
+            <div className="absolute bottom-full mb-2 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2">
+              {item.label}
+            </div>
           </div>
         </div>
       ))}
