@@ -11,18 +11,26 @@ import {
 } from "lucide-react";
 import React from "react";
 import { LogoIcon } from "./Icons";
+import { User } from "@/types/interfaces";
 
-const HeaderDrop = () => {
+interface HeaderDropProps {
+  user: User;
+}
+
+const HeaderDrop = ({ user }: HeaderDropProps) => {
   return (
     <div className="w-64 bg-white rounded-lg shadow-lg p-4">
       {/* User Info */}
       <div className="flex items-center space-x-4 pb-4 border-b">
         <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-black font-bold">
-          OJ
+          {user?.first_name?.charAt(0).toUpperCase()}
+          {user?.last_name?.charAt(0).toUpperCase()}
         </div>
         <div>
-          <h4 className="font-medium text-black">Olivier Jones</h4>
-          <p className="text-sm text-gray-500">olivierjones@gmail.com</p>
+          <h4 className="font-medium text-black">
+            {user.first_name} {user.last_name}
+          </h4>
+          <p className="text-sm text-gray-500">{user.email}</p>
         </div>
       </div>
 

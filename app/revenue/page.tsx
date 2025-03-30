@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Chart } from "../components/Chart";
-import PaymentCard from "../components/PaymentCard";
-import TransactionTable from "../components/TransactionTable";
+import { Chart } from "../../components/Chart";
+import PaymentCard from "../../components/PaymentCard";
+import TransactionTable from "../../components/TransactionTable";
 
 export default function Revenue() {
   return (

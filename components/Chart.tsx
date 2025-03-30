@@ -11,6 +11,7 @@ import {
 } from "recharts";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useWallet } from "@/hooks/useApiData";
 
 const chartData = [
   { month: "January", desktop: 186 },
@@ -22,19 +23,27 @@ const chartData = [
 ];
 
 export function Chart() {
+  const { data: wallet } = useWallet();
   return (
     <Card className="w-full border-none bg-white shadow-none">
       <CardHeader className="flex justify-start items-center gap-x-14">
         <div>
           <p className="text-gray-400 text-sm">Available Balance</p>
-          <p className="text-[#131316] text-3xl font-bold">USD 120,000</p>
+          <p className="text-[#131316] text-3xl font-bold">
+            {typeof wallet?.balance === "string"
+              ? wallet?.balance
+              : `USD ${Number(wallet?.balance).toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}`}
+          </p>
         </div>
-        <Button className="bg-black text-white px-6 py-2 rounded-full">
+        <Button className="bg-black text-white px-10 py-6 rounded-full">
           Withdraw
         </Button>
       </CardHeader>
       <CardContent>
-        <div className="relative w-full h-[20px] md:h-[300px]">
+        <div className="relative w-full h-[200px] md:h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={chartData}

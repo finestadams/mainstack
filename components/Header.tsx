@@ -17,6 +17,7 @@ import {
   SettingsIcon,
 } from "./Icons";
 import { ChevronDown } from "lucide-react";
+import { useUser } from "@/hooks/useApiData";
 
 const Header = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -51,15 +52,14 @@ const Header = () => {
     { name: "CRM", href: "#", icon: <ProfileIcon /> },
     { name: "Apps", href: "#", icon: <SettingsIcon /> },
   ];
+  const { data: user } = useUser();
 
   return (
     <header className="flex flex-wrap items-center justify-between px-6 py-4 bg-white shadow-md relative rounded-full mb-10">
-      {/* Left Section */}
       <div className="p-2 rounded-md">
         <LogoIcon />
       </div>
 
-      {/* Navigation Links */}
       <div className="flex items-center space-x-4">
         <nav className="hidden md:flex items-center space-x-6 text-gray-600 relative">
           {navLinks.map((link) => (
@@ -113,13 +113,14 @@ const Header = () => {
             onClick={toggleDropdown}
           >
             <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center cursor-pointer">
-              OJ
+              {user?.first_name?.charAt(0).toUpperCase()}
+              {user?.last_name?.charAt(0).toUpperCase()}
             </div>
             <MenuIcon />
           </div>
           {isDropdownVisible && (
             <div className="absolute right-0 mt-2">
-              <HeaderDrop />
+              {user && <HeaderDrop user={user} />}
             </div>
           )}
         </div>

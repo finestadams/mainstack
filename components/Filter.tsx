@@ -141,7 +141,7 @@ export function Filter({
             </div>
           </div>
 
-          <div>
+          <div className="w-full">
             <Label className="text-sm text-gray-500">Transaction Type</Label>
             <Popover
               open={isTransactionTypeOpen}
@@ -165,7 +165,7 @@ export function Filter({
                   )}
                 </div>
               </PopoverTrigger>
-              <PopoverContent className="w-64 p-4">
+              <PopoverContent className="w-80 p-4">
                 <div className="space-y-2">
                   {transactionTypes.map((type) => (
                     <label
@@ -205,7 +205,7 @@ export function Filter({
                   )}
                 </div>
               </PopoverTrigger>
-              <PopoverContent className="w-64 p-4">
+              <PopoverContent className="w-80 p-4">
                 <div className="space-y-2">
                   {transactionStatuses.map((status) => (
                     <label

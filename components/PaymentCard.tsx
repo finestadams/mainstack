@@ -1,12 +1,14 @@
+import { useWallet } from "@/hooks/useApiData";
 import { InfoIcon } from "lucide-react";
 import React from "react";
 
 const PaymentCard = () => {
+  const { data: wallet } = useWallet();
   const data = [
-    { label: "Ledger Balance", value: "USD 0.00" },
-    { label: "Total Payout", value: "USD 55,080.00" },
-    { label: "Total Revenue", value: "USD 175,580.00" },
-    { label: "Pending Payout", value: "USD 0.00" },
+    { label: "Ledger Balance", value: wallet?.ledger_balance || "USD 0.00" },
+    { label: "Total Payout", value: wallet?.total_payout || "USD 0.00" },
+    { label: "Total Revenue", value: wallet?.total_revenue || "USD 0.00" },
+    { label: "Pending Payout", value: wallet?.pending_payout || "USD 0.00" },
   ];
 
   return (
@@ -19,10 +21,13 @@ const PaymentCard = () => {
                 {item.label}
               </span>
             </div>
-
-            {/* Value */}
             <span className="text-black font-bold text-[28px]">
-              {item.value}
+              {typeof item.value === "string"
+                ? item.value
+                : `USD ${Number(item.value).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}`}
             </span>
           </div>
           <div>
