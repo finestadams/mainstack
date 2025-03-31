@@ -95,7 +95,7 @@ const Header = () => {
               </Link>
 
               {link.name === "Apps" && isAppsMenuVisible && (
-                <div className="absolute right-0 z-10 mt-2">
+                <div className="absolute right-0  z-10 -mt-5 lg:-right-50">
                   <AppsMenu onAppSelect={handleAppSelection} />
                 </div>
               )}
