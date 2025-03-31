@@ -340,3 +340,247 @@ export const DocumentIcon: React.FC = () => (
     </defs>
   </svg>
 );
+
+export const LinkIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+  >
+    <g style={{ mixBlendMode: "luminosity" }}>
+      <path
+        d="M20.5073 20.9H16.5073C14.1573 20.9 12.2573 19 12.2573 16.65V16.25C12.2573 13.9 14.1573 12 16.5073 12H20.5073C22.8573 12 24.7573 13.9 24.7573 16.25V16.65C24.7573 18.99 22.8473 20.9 20.5073 20.9Z"
+        stroke="url(#paint0_linear_11938_1447)"
+        strokeWidth="2.7"
+        strokeMiterlimit="10"
+      />
+      <path
+        d="M24.7773 24.9H20.7773C18.4273 24.9 16.5273 23 16.5273 20.65V20.25C16.5273 17.9 18.4273 16 20.7773 16H24.7773C27.1273 16 29.0273 17.9 29.0273 20.25V20.65C29.0273 23 27.1273 24.9 24.7773 24.9Z"
+        stroke="url(#paint1_linear_11938_1447)"
+        strokeWidth="2.7"
+        strokeMiterlimit="10"
+      />
+      <path
+        d="M13.4575 26.6L13.2075 26.99C13.1475 27.09 13.0275 27.12 12.9375 27.06L11.6575 26.3C11.5575 26.24 11.5275 26.12 11.5875 26.03L11.8375 25.64C11.8975 25.54 11.8675 25.42 11.7675 25.37L11.0975 24.98C10.9675 24.9 10.9675 24.71 11.0975 24.63L14.4375 22.75C14.5775 22.67 14.7375 22.77 14.7375 22.93L14.6975 26.77C14.6975 26.92 14.5275 27.02 14.3975 26.94L13.7275 26.55C13.6475 26.47 13.5175 26.51 13.4575 26.6Z"
+        fill="url(#paint2_linear_11938_1447)"
+      />
+    </g>
+    <defs>
+      <linearGradient
+        id="paint0_linear_11938_1447"
+        x1="10.8982"
+        y1="16.4454"
+        x2="26.1055"
+        y2="16.4454"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#870FFF" />
+        <stop offset="1" stopColor="#E7CFFF" />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_11938_1447"
+        x1="15.1692"
+        y1="20.4546"
+        x2="30.3765"
+        y2="20.4546"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FFDDCD" />
+        <stop offset="1" stopColor="#FF5403" />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_11938_1447"
+        x1="11.6639"
+        y1="23.6385"
+        x2="15.3095"
+        y2="25.8092"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FCFF1C" />
+        <stop offset="1" stopColor="#FF9D0A" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const MailIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+  >
+    <g style={{ mixBlendMode: "luminosity" }}>
+      <path
+        d="M26.9998 30.0599H12.9798C12.6298 30.0599 12.3398 29.7799 12.3398 29.4199V15.3999C12.3398 15.0499 12.6198 14.7599 12.9798 14.7599H26.9998C27.3498 14.7599 27.6398 15.0399 27.6398 15.3999V29.4199C27.6398 29.7699 27.3498 30.0599 26.9998 30.0599Z"
+        fill="url(#paint0_linear_11938_1452)"
+      />
+      <path
+        d="M28.4602 23.72L15.5902 13.22C15.1302 12.84 15.3902 12.09 15.9902 12.09H28.8602C29.2102 12.09 29.5002 12.37 29.5002 12.73V23.24C29.5002 23.77 28.8802 24.06 28.4602 23.72Z"
+        fill="url(#paint1_linear_11938_1452)"
+      />
+      <path
+        d="M11.54 21.58L24.41 11.07C24.87 10.69 24.61 9.94 24.01 9.94H11.14C10.79 9.94 10.5 10.22 10.5 10.58V21.09C10.5 21.62 11.12 21.92 11.54 21.58Z"
+        fill="url(#paint2_linear_11938_1452)"
+      />
+    </g>
+    <defs>
+      <linearGradient
+        id="paint0_linear_11938_1452"
+        x1="12.3418"
+        y1="22.4112"
+        x2="27.6375"
+        y2="22.4112"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FF9868" />
+        <stop offset="1" stopColor="#FF5403" />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_11938_1452"
+        x1="15.3529"
+        y1="17.9792"
+        x2="29.5002"
+        y2="17.9792"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#03FFE5" />
+        <stop offset="1" stopColor="#14B348" />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_11938_1452"
+        x1="10.5"
+        y1="15.8319"
+        x2="24.6472"
+        y2="15.8319"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FCFF1C" />
+        <stop offset="1" stopColor="#FF9D0A" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const CustomIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+  >
+    <g style={{ mixBlendMode: "luminosity" }}>
+      <path
+        d="M23.8403 12.925V19.025C23.8403 19.415 23.5303 19.725 23.1403 19.725H17.9803C17.5903 19.725 17.2803 19.415 17.2803 19.025V18.055H12.9803C12.5903 18.055 12.2803 17.745 12.2803 17.355V11.255C12.2803 10.865 12.5903 10.555 12.9803 10.555H18.1403C18.5303 10.555 18.8403 10.865 18.8403 11.255V12.225H23.1403C23.5203 12.225 23.8403 12.545 23.8403 12.925Z"
+        fill="url(#paint0_linear_11938_1458)"
+      />
+      <path
+        d="M19.59 22.1849H10.7C10.31 22.1849 10 21.8749 10 21.4849V14.5549C10 14.1649 10.31 13.8549 10.7 13.8549H19.59C19.98 13.8549 20.29 14.1649 20.29 14.5549V21.4849C20.29 21.8749 19.98 22.1849 19.59 22.1849Z"
+        fill="url(#paint1_linear_11938_1458)"
+      />
+      <path
+        d="M29.3 29.445H10.7C10.31 29.445 10 29.135 10 28.745V16.475C10 16.085 10.31 15.775 10.7 15.775H29.3C29.69 15.775 30 16.085 30 16.475V28.745C30 29.135 29.69 29.445 29.3 29.445Z"
+        fill="url(#paint2_linear_11938_1458)"
+      />
+    </g>
+    <defs>
+      <linearGradient
+        id="paint0_linear_11938_1458"
+        x1="12.2755"
+        y1="15.1424"
+        x2="23.8365"
+        y2="15.1424"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FCFF1C" />
+        <stop offset="1" stopColor="#FF9D0A" />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_11938_1458"
+        x1="10"
+        y1="18.0223"
+        x2="20.293"
+        y2="18.0223"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#E7CFFF" />
+        <stop offset="1" stopColor="#870FFF" />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_11938_1458"
+        x1="10"
+        y1="22.6143"
+        x2="30"
+        y2="22.6143"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#03FFE5" />
+        <stop offset="1" stopColor="#14B348" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const CustomGradientIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+  >
+    <g style={{ mixBlendMode: "luminosity" }}>
+      <path
+        d="M28.5202 14.65V29.05C28.5202 29.63 28.0502 30.1 27.4702 30.1H17.2902C16.7102 30.1 16.2402 29.63 16.2402 29.05V28.16L25.3402 24.72C25.7002 24.58 25.9402 24.24 25.9402 23.85V13.6H27.4702C28.0502 13.6 28.5202 14.07 28.5202 14.65Z"
+        fill="url(#paint0_linear_11938_1464)"
+      />
+      <path
+        d="M25.9402 13.6V23.86C25.9402 24.25 25.7002 24.59 25.3402 24.73L16.2402 28.17V14.65C16.2402 14.07 16.7102 13.6 17.2902 13.6H25.9402Z"
+        fill="url(#paint1_linear_11938_1464)"
+      />
+      <path
+        d="M25.94 10.93V13.6H17.29C16.71 13.6 16.24 14.07 16.24 14.65V28.17L12.74 29.49C12.13 29.72 11.48 29.27 11.48 28.62V10.92C11.48 10.41 11.9 9.98999 12.41 9.98999H25.01C25.52 9.99999 25.94 10.42 25.94 10.93Z"
+        fill="url(#paint2_linear_11938_1464)"
+      />
+    </g>
+    <defs>
+      <linearGradient
+        id="paint0_linear_11938_1464"
+        x1="16.2422"
+        y1="21.8522"
+        x2="28.5182"
+        y2="21.8522"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FCFF1C" />
+        <stop offset="1" stopColor="#FF9D0A" />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_11938_1464"
+        x1="16.2422"
+        y1="20.8857"
+        x2="25.9372"
+        y2="20.8857"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FFDDCD" />
+        <stop offset="1" stopColor="#FF5403" />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_11938_1464"
+        x1="11.482"
+        y1="19.7778"
+        x2="25.937"
+        y2="19.7778"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#E7CFFF" />
+        <stop offset="1" stopColor="#870FFF" />
+      </linearGradient>
+    </defs>
+  </svg>
+);

@@ -19,7 +19,7 @@ interface HeaderDropProps {
 
 const HeaderDrop = ({ user }: HeaderDropProps) => {
   return (
-    <div className="w-64 bg-white rounded-lg shadow-lg p-4">
+    <div className="w-64 bg-white rounded-lg shadow-lg p-4 z-50">
       {/* User Info */}
       <div className="flex items-center space-x-4 pb-4 border-b">
         <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-black font-bold">
@@ -34,7 +34,6 @@ const HeaderDrop = ({ user }: HeaderDropProps) => {
         </div>
       </div>
 
-      {/* Menu Items */}
       <ul className="mt-4 space-y-4 text-gray-600">
         <li className="flex items-center space-x-3 hover:text-black cursor-pointer">
           <span>

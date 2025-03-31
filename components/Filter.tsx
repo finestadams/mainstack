@@ -140,8 +140,8 @@ export function Filter({
     <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
       <SheetTrigger asChild>
         <button
-          className="px-4 py-2 text-sm bg-gray-100 rounded-full hover:bg-gray-200
-          text-[#131316] font-semibold flex items-center cursor-pointer"
+          className="px-2 py-2 text-sm bg-gray-100 rounded-full hover:bg-gray-200
+        text-[#131316] font-semibold flex items-center cursor-pointer"
         >
           Filter
           {selectedTypes.length || selectedStatuses.length > 0 ? (
@@ -156,7 +156,7 @@ export function Filter({
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="p-6 flex flex-col justify-between h-full"
+        className="p-6 flex flex-col justify-between h-full max-w-full sm:max-w-md"
       >
         <SheetHeader>
           <SheetTitle className="text-2xl font-bold text-[#131316] absolute top-4 left-5">
@@ -164,15 +164,15 @@ export function Filter({
           </SheetTitle>
         </SheetHeader>
         <div className="space-y-6">
-          <div className="flex items-center space-x-2">
+          <div className="flex flex-1 items-center justify-between ">
             {datePresets.map((preset) => (
               <button
                 key={preset}
                 onClick={() => handlePresetClick(preset)}
-                className={`px-1 py-1 text-sm rounded-full border ${
+                className={`px-2 py-1.5 text-sm rounded-4xl border ${
                   selectedPreset === preset
                     ? "bg-black text-white"
-                    : "bg-gray-100 text-[#131316] hover:bg-gray-200"
+                    : "bg-white text-[#131316] hover:bg-gray-200"
                 }`}
               >
                 {preset}
@@ -184,7 +184,7 @@ export function Filter({
             <Label className="text-base text-[#131316] font-normal">
               Date Range
             </Label>
-            <div className="flex items-center space-x-4 mt-2">
+            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-2">
               <Popover>
                 <PopoverTrigger asChild>
                   <div className="relative w-full">
@@ -192,7 +192,7 @@ export function Filter({
                       readOnly
                       value={startDate ? startDate.toLocaleDateString() : ""}
                       placeholder="Start Date"
-                      className="cursor-pointer bg-[#EFF1F6]"
+                      className="cursor-pointer bg-[#EFF1F6] placeholder:text-[#131316]"
                     />
                     <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                   </div>
@@ -213,7 +213,7 @@ export function Filter({
                       readOnly
                       value={endDate ? endDate.toLocaleDateString() : ""}
                       placeholder="End Date"
-                      className="cursor-pointer bg-[#EFF1F6]"
+                      className="cursor-pointer bg-[#EFF1F6] placeholder:text-[#131316]"
                     />
                     <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                   </div>
@@ -246,7 +246,9 @@ export function Filter({
                         ? selectedTypes.join(", ")
                         : "Select Transaction Types"
                     }
-                    className="cursor-pointer bg-[#EFF1F6]"
+                    className={`cursor-pointer bg-[#EFF1F6] ${
+                      isTransactionTypeOpen ? "border-black border-2" : ""
+                    }`}
                   />
                   {isTransactionTypeOpen ? (
                     <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -255,7 +257,7 @@ export function Filter({
                   )}
                 </div>
               </PopoverTrigger>
-              <PopoverContent className="w-80 p-4">
+              <PopoverContent className="w-full lg:w-[395px] p-4">
                 <div className="space-y-2">
                   {transactionTypes.map((type) => (
                     <label
@@ -288,7 +290,9 @@ export function Filter({
                         ? selectedStatuses.join(", ")
                         : "Select Transaction Statuses"
                     }
-                    className="cursor-pointer bg-[#EFF1F6] active:border-black focus-visible:border-black"
+                    className={`cursor-pointer bg-[#EFF1F6] ${
+                      isStatusOpen ? "border-black border-2" : ""
+                    }`}
                   />
                   {isStatusOpen ? (
                     <ChevronUp className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -297,7 +301,7 @@ export function Filter({
                   )}
                 </div>
               </PopoverTrigger>
-              <PopoverContent className="w-80 p-4">
+              <PopoverContent className="w-full lg:w-[395px] p-4">
                 <div className="space-y-2">
                   {transactionStatuses.map((status) => (
                     <label
@@ -318,17 +322,21 @@ export function Filter({
         </div>
 
         <SheetFooter className="sticky bottom-0 left-0 w-full p-4 bg-white">
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Button
               variant="outline"
-              className="w-1/2 text-gray-500 border-gray-300 hover:bg-gray-100 rounded-full"
+              className="w-full sm:w-1/2 cursor-pointer text-gray-500 border-gray-300 hover:bg-gray-100 rounded-full"
               onClick={resetFilters}
             >
               Clear
             </Button>
 
             <Button
-              className="w-1/2 bg-black text-white rounded-full"
+              className={`w-full sm:w-1/2 rounded-full cursor-pointer ${
+                isApplyDisabled
+                  ? "bg-[#DBDEE5] text-white"
+                  : "bg-black text-white"
+              }`}
               onClick={handleApplyFilters}
               disabled={isApplyDisabled}
             >

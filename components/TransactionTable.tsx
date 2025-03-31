@@ -55,11 +55,10 @@ const TransactionTable = () => {
   });
 
   return (
-    <div className="bg-white pt-20">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-white pt-20 px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 space-y-4 sm:space-y-0">
         <div>
-          <h2 className="text-2xl font-bold text-[#131316]">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#131316]">
             {filteredTransactions?.length || 0} Transactions
           </h2>
           {(transactions?.length ?? 0) > 0 && (
@@ -80,7 +79,7 @@ const TransactionTable = () => {
             </p>
           )}
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <Filter
             isSheetOpen={isSheetOpen}
             setIsSheetOpen={setIsSheetOpen}
@@ -88,7 +87,7 @@ const TransactionTable = () => {
           />
           <button
             className="px-4 py-2 text-sm bg-gray-100 rounded-full hover:bg-gray-200
-          text-[#131316] font-semibold flex items-center cursor-pointer"
+        text-[#131316] font-semibold flex items-center justify-center"
           >
             Export list{" "}
             <span className="ml-2">
@@ -98,17 +97,17 @@ const TransactionTable = () => {
         </div>
       </div>
 
-      {/* Transactions */}
       <div className="space-y-6">
         {filteredTransactions?.length === 0 ? (
           <div className="grid place-items-center gap-y-10 py-10">
-            <div className="">
+            <div className="text-center">
               <DocumentIcon />
 
-              <h3 className="text-3xl font-bold text-[#131316] pt-10 pb-5">
-                No matching transaction found <br /> for the selected filter
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#131316] pt-10 pb-5 text-left">
+                No matching transaction found <br className="hidden sm:block" />{" "}
+                for the selected filter
               </h3>
-              <p className="text-sm text-gray-500 pb-5">
+              <p className="text-sm text-gray-500 pb-5 text-left">
                 Change your filters to see more results, or add a new product.
               </p>
               <button
@@ -120,7 +119,7 @@ const TransactionTable = () => {
                     transactionStatuses: [],
                   })
                 }
-                className="px-4 py-2 text-sm bg-gray-100 rounded-full hover:bg-gray-200 text-[#56616B] font-semibold"
+                className="px-4 py-2 text-sm bg-gray-100 rounded-full hover:bg-gray-200 text-[#56616B] font-semibold flex"
               >
                 Clear Filter
               </button>
@@ -128,7 +127,10 @@ const TransactionTable = () => {
           </div>
         ) : (
           filteredTransactions?.map((transaction, index) => (
-            <div key={index} className="flex items-center justify-between pb-4">
+            <div
+              key={index}
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 space-y-4 sm:space-y-0"
+            >
               <div className="flex items-center space-x-4">
                 <div
                   className={`w-10 h-10 flex items-center justify-center rounded-full ${
@@ -150,7 +152,8 @@ const TransactionTable = () => {
                   </h4>
                   <p
                     className={`text-sm ${
-                      transaction.status === "successful"
+                      transaction.status === "successful" &&
+                      !transaction.metadata?.product_name
                         ? "text-green-500"
                         : transaction.status === "pending"
                         ? "text-[#A77A07]"
@@ -162,11 +165,12 @@ const TransactionTable = () => {
                 </div>
               </div>
 
-              <div className="text-right">
+              <div className="text-left sm:text-right">
                 <p className="font-bold text-black">
                   {new Intl.NumberFormat("en-US", {
                     style: "currency",
                     currency: "USD",
+                    currencyDisplay: "code",
                   }).format(transaction.amount)}
                 </p>
                 <p className="text-sm text-gray-500">

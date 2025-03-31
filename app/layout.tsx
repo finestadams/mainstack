@@ -8,6 +8,8 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import Providers from "./Providers";
+import { CustomGradientIcon, CustomIcon, MailIcon } from "@/components/Icons";
+import { LinkIcon } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +39,25 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <div className="px-10 py-5">
-            <Header />
-            <div className="px-10 md:px-30">{children}</div>
+          <div className="relative ">
+            <div className="fixed top-1/2 left-5 transform -translate-y-1/2 space-y-4 bg-white p-3 shadow-2xl rounded-full z-10">
+              <button className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200">
+                <LinkIcon />
+              </button>
+              <button className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200">
+                <MailIcon />
+              </button>
+              <button className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200">
+                <CustomIcon />
+              </button>
+              <button className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center shadow-md hover:bg-gray-200">
+                <CustomGradientIcon />
+              </button>
+            </div>
+            <div className="lg:px-10 py-5">
+              <Header />
+              <div className="px-10 md:px-30">{children}</div>
+            </div>
           </div>
         </Providers>
       </body>

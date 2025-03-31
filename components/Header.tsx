@@ -22,7 +22,7 @@ import { useUser } from "@/hooks/useApiData";
 const Header = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [isAppsMenuVisible, setIsAppsMenuVisible] = useState(false);
-  const [selectedApp, setSelectedApp] = useState("Apps"); // Default text for the Apps link
+  const [selectedApp, setSelectedApp] = useState("Apps");
 
   const toggleDropdown = () => {
     setIsDropdownVisible((prev) => !prev);
@@ -34,13 +34,12 @@ const Header = () => {
 
   const handleAppSelection = (appName: string) => {
     setSelectedApp(`Apps ${appName}`);
-    setIsAppsMenuVisible(false); // Close the AppsMenu after selection
+    setIsAppsMenuVisible(false);
   };
 
   const pathname = usePathname();
   const isActiveLink = (path: string) => pathname === path;
 
-  // Navigation links array
   const navLinks = [
     {
       name: "Home",
@@ -55,13 +54,13 @@ const Header = () => {
   const { data: user } = useUser();
 
   return (
-    <header className="flex flex-wrap items-center justify-between px-6 py-4 bg-white shadow-md relative rounded-full mb-10">
+    <header className="flex flex-wrap items-center justify-between px-4 py-3 bg-white shadow-md relative rounded-full mb-6 md:px-6 md:py-4">
       <div className="p-2 rounded-md">
         <LogoIcon />
       </div>
 
       <div className="flex items-center space-x-4">
-        <nav className="hidden md:flex items-center space-x-6 text-gray-600 relative">
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 text-gray-600 relative">
           {navLinks.map((link) => (
             <div key={link.name} className="relative flex items-center">
               <Link
@@ -70,7 +69,7 @@ const Header = () => {
                 className={`flex items-center space-x-2 ${
                   isActiveLink(link.href) ||
                   (link.name === "Apps" && isAppsMenuVisible)
-                    ? "bg-black text-white px-4 py-2 rounded-full"
+                    ? "bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full"
                     : ""
                 }`}
               >
@@ -84,17 +83,19 @@ const Header = () => {
                   </p>
                   {link.name === "Apps" ? (
                     <>
-                      <span>{selectedApp}</span>
+                      <span className="text-sm md:text-base">
+                        {selectedApp}
+                      </span>
                       {isAppsMenuVisible && <ChevronDown />}
                     </>
                   ) : (
-                    <span>{link.name}</span>
+                    <span className="text-sm md:text-base">{link.name}</span>
                   )}
                 </span>
               </Link>
-              {/* Show AppsMenu below the "Apps" link */}
+
               {link.name === "Apps" && isAppsMenuVisible && (
-                <div className="absolute -right-30 z-10 -top-2">
+                <div className="absolute right-0 z-10 mt-2">
                   <AppsMenu onAppSelect={handleAppSelection} />
                 </div>
               )}
@@ -103,16 +104,15 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* Right Section */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2 md:space-x-4">
         <NotificationIcon />
         <ChatIcon />
         <div className="relative">
           <div
-            className="flex items-center space-x-2 bg-[#EFF1F6] rounded-full px-4 py-2 cursor-pointer"
+            className="flex items-center space-x-2 bg-[#EFF1F6] rounded-full px-3 py-1 md:px-4 md:py-2 cursor-pointer"
             onClick={toggleDropdown}
           >
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center cursor-pointer">
+            <div className="w-6 h-6 md:w-8 md:h-8 bg-gray-300 rounded-full flex items-center justify-center cursor-pointer text-sm md:text-base">
               {user?.first_name?.charAt(0).toUpperCase()}
               {user?.last_name?.charAt(0).toUpperCase()}
             </div>
