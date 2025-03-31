@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, DownloadIcon, Receipt } from "lucide-react";
+import { DownloadIcon } from "lucide-react";
 import { ArrowIconIn, ArrowIconOut, DocumentIcon } from "./Icons";
 import { Filter } from "./Filter";
 import { useTransactions } from "@/hooks/useApiData";
