@@ -2,7 +2,7 @@ import { Transaction, User, Wallet } from '@/types/interfaces';
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://fe-task-api.mainstack.io/',
+  baseURL: process.env.NEXT_PUBLIC_API_URL! ?? 'https://fe-task-api.mainstack.io'
 });
 
 export const fetchUser = async (): Promise<User> => {
