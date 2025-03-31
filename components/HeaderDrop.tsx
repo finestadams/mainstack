@@ -1,16 +1,14 @@
 import {
   BugIcon,
   Gift,
-  Link,
   LinkIcon,
   LogOutIcon,
   Receipt,
   Settings,
-  SignatureIcon,
   SwitchCameraIcon,
 } from "lucide-react";
 import React from "react";
-import { LogoIcon } from "./Icons";
+
 import { User } from "@/types/interfaces";
 
 interface HeaderDropProps {
@@ -20,7 +18,6 @@ interface HeaderDropProps {
 const HeaderDrop = ({ user }: HeaderDropProps) => {
   return (
     <div className="w-64 bg-white rounded-lg shadow-lg p-4 z-50">
-      {/* User Info */}
       <div className="flex items-center space-x-4 pb-4 border-b">
         <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-black font-bold">
           {user?.first_name?.charAt(0).toUpperCase()}

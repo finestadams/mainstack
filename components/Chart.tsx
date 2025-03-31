@@ -14,7 +14,12 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useWallet, useTransactions } from "@/hooks/useApiData";
 import { useMemo } from "react";
 
-const groupTransactionsByDate = (transactions: any[]) => {
+interface Transaction {
+  date: string;
+  amount: number;
+}
+
+const groupTransactionsByDate = (transactions: Transaction[]) => {
   const grouped: { [key: string]: number } = {};
 
   transactions.forEach((transaction) => {
